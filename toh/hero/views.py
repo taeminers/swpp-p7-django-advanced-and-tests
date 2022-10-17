@@ -4,8 +4,12 @@ import json
 from json.decoder import JSONDecodeError
 from .models import Hero
 
-# def index(request):
-#     return HttpResponse('Hello, world!')
+def index(request):
+    if 'visit_count' not in request.session:
+        request.session['visit_count'] = 1
+    else:
+        request.session['visit_count'] += 1
+    return HttpResponse(f'Hello, world! You visited {request.session["visit_count"]}')
 
 def id(request, id):
     return HttpResponse(f'Your id is {id}!')
