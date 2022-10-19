@@ -17,13 +17,12 @@ def index(request):
     else:
         request.session['visit_count'] += 1
     return HttpResponse(f'Hello, world! You visited {request.session["visit_count"]}')
-
 def id(request, id):
     return HttpResponse(f'Your id is {id}!')
-
 def name(request, name):
-    return HttpResponse(f'Your name is {name}!')
-
+    return {
+        HttpResponse(f'Your name is {name}!')
+    }
 def hero_list(request):
     if request.method == 'GET':
         hero_all_list = [hero for hero in Hero.objects.all().values()]
