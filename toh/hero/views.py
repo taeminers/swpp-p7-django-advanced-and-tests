@@ -30,7 +30,7 @@ def hero_list(request):
         return JsonResponse(response_dict, status=201)
     else:
         return HttpResponseNotAllowed(['GET', 'POST'])
-
+#test
 @csrf_exempt
 def hero_info(request, id):
     if request.method == 'GET':
